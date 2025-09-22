@@ -1,6 +1,6 @@
 # Sell My Stuff Backend - Hackathon Project
 
-Sell My Stuff Backend is a Python FastAPI service that analyzes product images and generates optimized sales listings using AWS Bedrock's Claude Sonnet 4 model. 
+Sell My Stuff Backend is a Python FastAPI service that analyzes product images and generates optimized sales listings using AWS Bedrock's Claude Sonnet 4 model.
 
 This project serves as the target application for aspiring AWS cloud engineers participating in our hackathon.
 
@@ -8,7 +8,8 @@ This project serves as the target application for aspiring AWS cloud engineers p
 
 **Your Mission**: Deploy the complete infrastructure required to run this application using Terraform and GitHub Actions.
 
-This hackathon is designed to help aspiring cloud engineers gain hands-on experience with:
+This hackathon is designed to help aspiring cloud engineers gain hands-on experience with
+
 - AWS infrastructure provisioning with Terraform
 - CI/CD pipelines with GitHub Actions
 - Serverless deployment strategies
@@ -43,23 +44,28 @@ The frontend provides a user-friendly interface for uploading images and display
 - AWS Account with Bedrock access
 
 ### 1. Clone the repository
+
 ```bash
 git clone https://github.com/breakintocloud/sell-my-stuff-backend.git
 cd sell-my-stuff-backend
 ```
 
 ### 2. Install dependencies
+
 ```bash
 pipenv install --dev
 ```
 
 ### 3. Set up AWS credentials
+
 Configure your AWS credentials to access Bedrock:
+
 ```bash
 aws configure
 ```
 
 ### 4. Start the development server
+
 ```bash
 pipenv run uvicorn sell_my_stuff.main:app --reload
 ```
@@ -67,6 +73,7 @@ pipenv run uvicorn sell_my_stuff.main:app --reload
 Open [http://localhost:8000](http://localhost:8000) to view the API documentation.
 
 ### 5. Run tests
+
 ```bash
 pipenv run pytest
 ```
@@ -80,6 +87,7 @@ pipenv run pytest
 Analyze a product image and get a sales-optimized description and price suggestion.
 
 **Request Body:**
+
 ```json
 {
   "image": "base64_encoded_image_data"
@@ -87,6 +95,7 @@ Analyze a product image and get a sales-optimized description and price suggesti
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -96,7 +105,8 @@ Analyze a product image and get a sales-optimized description and price suggesti
 }
 ```
 
-### Example with curl:
+### Example with curl
+
 ```bash
 curl -X POST "http://localhost:8000/listings/analyze" \
   -H "Content-Type: application/json" \
@@ -106,6 +116,7 @@ curl -X POST "http://localhost:8000/listings/analyze" \
 ## Deployment
 
 ### AWS Lambda
+
 The project includes a Lambda handler for serverless deployment:
 
 ```python
@@ -113,6 +124,7 @@ sell_my_stuff.lambda_handler.lambda_handler
 ```
 
 ## Tech Stack
+
 - [FastAPI](https://fastapi.tiangolo.com/) - Modern, fast web framework
 - [AWS Bedrock](https://aws.amazon.com/bedrock/) - Claude Sonnet 4 for image analysis
 - [Pydantic](https://pydantic.dev/) - Data validation and settings management
@@ -121,7 +133,8 @@ sell_my_stuff.lambda_handler.lambda_handler
 - [moto](https://docs.getmoto.org/) - AWS service mocking for tests
 
 ## Project Structure
-```
+
+```mmd
 sell_my_stuff/
 ├── api/
 │   ├── endpoints/          # API route handlers
@@ -147,4 +160,5 @@ This hackathon is part of the [Break Into Cloud](https://www.skool.com/cloud) co
 Whether you're just starting your cloud journey or looking to advance your skills, our community provides the resources and support you need to succeed.
 
 ## License
+
 MIT

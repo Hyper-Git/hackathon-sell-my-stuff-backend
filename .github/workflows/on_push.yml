@@ -1,0 +1,43 @@
+name: Publish Frontend
+
+on:
+  push:
+    branches: 
+      - main
+
+permissions:
+  id-token: write
+  contents: read
+  
+jobs:
+  lambda_packaging:
+    name: Package Lambda and Upload to S3
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
+
+      - name: Package Code
+        run: ./package_code.sh
+
+      - name: COnfigure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: eu-west-1
+
+      - name: Upload to S3
+        run: |
+          aws s3 cp lambda_package.zip s3://${ { secrets.S3_BUCKET_NAME } }/artifacts/lambda_package.zip
+          aws s3 cp dependencies.zip s3://${ { secrets.S3_BUCKET_NAME } }/artifacts/dependencies.zip
+
+          
+
+
+  
+  
