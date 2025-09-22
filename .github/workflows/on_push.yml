@@ -33,8 +33,8 @@ jobs:
 
       - name: Upload to S3
         run: |
-          aws s3 cp lambda_package.zip s3://${ { secrets.S3_BUCKET_NAME } }/artifacts/lambda_package.zip
-          aws s3 cp dependencies.zip s3://${ { secrets.S3_BUCKET_NAME } }/artifacts/dependencies.zip
+          aws s3 cp lambda_package.zip s3://${{ secrets.S3_BUCKET_NAME }}/artifacts/lambda_package.zip
+          aws s3 cp dependencies.zip s3://${{ secrets.S3_BUCKET_NAME }}/artifacts/dependencies.zip
 
           
 
