@@ -10,10 +10,5 @@ resource "aws_iam_role_policy" "lambda_policy" {
   
 }
 
-resource "aws_iam_role_policy" "github_lambda_read" {
-  name = "GitHubActionsLambdaRead"
-  role = aws_iam_role.github_actions_role.name  # or your actual role resource
 
-  policy = file("${path.module}/iam/lambda_policy.json")
-}
 
