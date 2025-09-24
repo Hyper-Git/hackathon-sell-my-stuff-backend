@@ -47,8 +47,6 @@ resource "aws_api_gateway_usage_plan" "sell_my_stuff" {
 
 }
 
-
-
 # Create API Key
 resource "aws_api_gateway_api_key" "sell_my_stuff" {
   name        = "sell-my-stuff-api-key"

@@ -3,9 +3,7 @@
   "Statement": [
     {
       "Effect": "Allow",
-      "Action": [
-        "bedrock:InvokeModel"
-      ],
+      "Action": "bedrock:InvokeModel",
       "Resource": "*"
     },
     {

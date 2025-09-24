@@ -14,7 +14,7 @@ data "aws_s3_object" "dependencies" {
 
 # Create Lambda Function
 resource "aws_lambda_function" "sell_my_stuff" {
-  function_name     = "sell_my_stuff_function"
+  function_name     = "sell_my_stuff"
   role              = aws_iam_role.lambda_role.arn
   handler           = "sell_my_stuff.lambda_handler"
   runtime           = "python3.13"
