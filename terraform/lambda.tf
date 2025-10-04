@@ -16,7 +16,7 @@ data "aws_s3_object" "dependencies" {
 resource "aws_lambda_function" "sell_my_stuff" {
   function_name     = "sell_my_stuff"
   role              = aws_iam_role.lambda_role.arn
-  handler           = "sell_my_stuff.lambda_handler"
+  handler           = "sell_my_stuff.lambda_handler.lambda_handler"
   runtime           = "python3.13"
   s3_bucket         = local.artifact_bucket
   s3_key            = data.aws_s3_object.lambda_package.key
